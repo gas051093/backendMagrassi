@@ -10,5 +10,8 @@ class userManager {
     async checkEmail(email) { 
         return await userModel.findOne({email: email})
     }
+    async userById(id) { 
+        return await userModel.findById(id)
+    }
 }
 export default userManager

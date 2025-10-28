@@ -1,5 +1,6 @@
 import { Router } from "express";
 import userManager from "../manager/userManager.js";
+import passport from "passport";
 import {
   createHash,
   generateToken,
@@ -37,28 +38,31 @@ router.post("/user/login", async (req, res) => {
     res.status(500).json({ message: "Error en el servidor", err: err.message });
   }
 });
-router.post("/user/register", async (req, res) => {
-  const { first_name, last_name, email, age, password } = req.body;
-  if (!last_name || !first_name || !email || !age || !password)
-    return res.status(400).json({ error: "datos no compatibles" });
-  try {
-    const existEmail = await managerUser.checkEmail(email);
-    if (existEmail)
-      return res.status(409).json({ error: "el email ya existe" });
-    const password_hash = createHash(password);
-    const newUser = {
-      first_name,
-      last_name,
-      email,
-      age,
-      password: password_hash,
-    };
-    const user = await managerUser.createUser(newUser);
-    res.status(201).json({ message: `Usuario creado`, payload: user });
-  } catch (err) {
-    res.status(500).json({ message: "Error en el servidor", err: err.message });
-  }
-});
+// router.post("/user/register", async (req, res) => {
+//   const { first_name, last_name, email, age, password } = req.body;
+//   if (!last_name || !first_name || !email || !age || !password)
+//     return res.status(400).json({ error: "datos no compatibles" });
+//   try {
+//     const existEmail = await managerUser.checkEmail(email);
+//     if (existEmail)
+//       return res.status(409).json({ error: "el email ya existe" });
+//     const password_hash = createHash(password);
+//     const newUser = {
+//       first_name,
+//       last_name,
+//       email,
+//       age,
+//       password: password_hash,
+//     };
+//     const user = await managerUser.createUser(newUser);
+//     res.status(201).json({ message: `Usuario creado`, payload: user });
+//   } catch (err) {
+//     res.status(500).json({ message: "Error en el servidor", err: err.message });
+//   }
+// });
+router.post("/user/register", passport.authenticate('register', { failureRedirect: '/register'}), async (req, res) => { 
+    res.redirect('/login')
+})
 router.get("/user/check", async (req, res) => {
   try {
     const email = req.query.email;

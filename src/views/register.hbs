@@ -3,40 +3,40 @@
         <div class="col-11 col-lg-5 containerForm p-4">
             <h3 class="titleForm">Registro</h3>
             <p>Completa los datos para registrate como usuario</p>
-            <form class="form p-5 mb-5 row" action="">
+            <form class="form p-5 mb-5 row" id="form_register" action="">
                 <div class="col-6">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" autocomplete="given-name">
-                        <label for="floatingInput">Nombre</label>
+                        <input type="text" class="form-control" name="inputFirstname" id="inputFirstame" placeholder="" autocomplete="given-name">
+                        <label for="inputFirstname">Nombre</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" min="0" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Edad</label>
+                        <input type="number" min="0" class="form-control" name="inputAge" id="inputAge" placeholder="">
+                        <label for="inputAge">Edad</label>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" autocomplete="family-name">
-                        <label for="floatingInput">Apellido</label>
+                        <input type="text" class="form-control" id="inputLastname" name="inputLastname" placeholder="" autocomplete="family-name">
+                        <label for="inputLastname">Apellido</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="name@example.com">
+                        <label for="inputEmail">Email</label>
                     </div>
                 </div>
                 <hr>
                 <div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
-                        <label for="floatingInput">Contraseña</label>
+                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Contraseña">
+                        <label for="inputPassword">Contraseña</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
-                        <label for="floatingPassword">Confirme contraseña</label>
+                        <input type="password" class="form-control" id="inputPassword2" name="inputPassword2" placeholder="contraseña">
+                        <label for="inputPassword2">Confirme contraseña</label>
                     </div>
                 </div>
                 <div class="mt-4 m-0 p-0 row">
-                    <button type="button" class="btn mt-3 btn-primary">Registrate</button>
+                    <button type="submit" class="btn mt-3 btn-primary">Registrate</button>
                 </div>
             </form>
             <div>
@@ -45,3 +45,5 @@
         </div>
     </section>
 </div>
+
+<script src="./js/register.js"></script>

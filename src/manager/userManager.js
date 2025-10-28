@@ -8,7 +8,7 @@ class userManager {
         return await userModel.create(data)
     }
     async checkEmail(email) { 
-        return await userModel.exists({email})
+        return await userModel.findOne({email: email})
     }
 }
 export default userManager

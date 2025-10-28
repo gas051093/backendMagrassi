@@ -3,17 +3,17 @@
         <div class="col-11 col-lg-3 containerForm p-4">
             <h3 class="titleForm">Login</h3>
             <p>Completa los datos para iniciar seccion</p>
-            <form class="form p-5 mb-5" action="">
+            <form class="form p-5 mb-5" action="" id="loginForm">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
+                    <input type="email" class="form-control" name="loginEmail" id="loginEmail" placeholder="name@example.com">
+                    <label for="loginEmail">Email</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                    <label for="floatingPassword">Contraseña</label>
+                    <input type="password" class="form-control" name="loginPassword" id="loginPassword" placeholder="Contraseña">
+                    <label for="loginPassword">Contraseña</label>
                 </div>
                 <div class="mt-4 m-0 p-0 row">
-                    <button type="button" class="btn mt-3 btn-primary">Ingresar</button>
+                    <button type="submit" class="btn mt-3 btn-primary">Ingresar</button>
                     <a class="p-0 m-0" href="\update">Recuperar contraseña</a>
                 </div>
             </form>
@@ -23,3 +23,5 @@
         </div>
     </section>
 </div>
+
+<script src="./js/login.js"></script>

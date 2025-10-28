@@ -13,4 +13,7 @@ router.get("/login", (req, res) => {
 router.get("/update", (req, res) => {
   res.render("update");
 });
+router.get("/profile", (req, res) => {
+  res.redirect("login");
+});
 export default router;

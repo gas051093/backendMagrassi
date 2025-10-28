@@ -1,2 +1,47 @@
-<h1>Pagina de registro</h1>
-<p>Formulario de carga de usuario nuevo</p>
+<div class="container-fluid m-0 p-0">
+    <section class="bgPage p-0 m-0 d-flex justify-content-center align-items-center vh-100">
+        <div class="col-11 col-lg-5 containerForm p-4">
+            <h3 class="titleForm">Registro</h3>
+            <p>Completa los datos para registrate como usuario</p>
+            <form class="form p-5 mb-5 row" action="">
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" autocomplete="given-name">
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" min="0" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Edad</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="" autocomplete="family-name">
+                        <label for="floatingInput">Apellido</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+                        <label for="floatingInput">Contraseña</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
+                        <label for="floatingPassword">Confirme contraseña</label>
+                    </div>
+                </div>
+                <div class="mt-4 m-0 p-0 row">
+                    <button type="button" class="btn mt-3 btn-primary">Registrate</button>
+                </div>
+            </form>
+            <div>
+                <span class="fw-normal">Tenes cuenta? <a href="/login">Ingresa!</a></span>
+            </div>
+        </div>
+    </section>
+</div>

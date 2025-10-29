@@ -1,2 +1,23 @@
-<h1 class="text-center">Pagina Principal</h1>
-<a href="/register">No sos usuario? registrate</a>
+<div
+  class="bgHomePage container-fluid p-o m-0 vh-100 d-flex flex-column  justify-content-center"
+>
+  <div class="row justify-content-center">
+    <main class="col-11 text-center">
+      <div class="card shadow-sm p-4">
+        <h1 class="mb-4 fw-bold text-primary">Bienvenido a csistemas</h1>
+        <p class="lead mb-4">Pagina de gestión y autenticación con Passport y JWT</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="/login" class="btn btn-outline-primary btn-lg">Iniciar Sesión</a>
+          <a href="/register" class="btn btn-success btn-lg">Registrarse</a>
+        </div>
+        <hr class="my-4" />
+      </div>
+    </main>
+
+    <footer class="text-center mt-5 text-secondary">
+      <p class="textFooter">&copy;
+        {{year}}
+        csistemas - Desarrollado por Elio Gastón Magrassi</p>
+    </footer>
+  </div>
+</div>

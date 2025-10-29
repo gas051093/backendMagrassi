@@ -9,7 +9,6 @@ import {
 
 const managerUser = new userManager();
 const router = Router();
-
 router.post("/user/login", (req, res, next) => {
   passport.authenticate("login", async (err, user, info) => {
     if (err) return next(err);

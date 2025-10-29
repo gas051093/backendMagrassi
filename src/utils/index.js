@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = "csistemasapp"
+const JWT_SECRET = "csistemas";
 export const createHash = (password) => { 
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 } 

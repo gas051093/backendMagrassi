@@ -43,11 +43,11 @@ formRegister.addEventListener("submit", async (e) => {
       body: JSON.stringify(user),
     });
     const res = await createUser.json();
-    console.log(createUser)
+    console.log(res)
     if (createUser.ok) {
       Swal.fire({
         title: "Usuario creado",
-        text: `Usuario creado con el email: ${res.user.email}`,
+        text: `Usuario creado con el email: ${res.payload.email}`,
         icon: "success",
       }).then(() => {
         formRegister.reset();

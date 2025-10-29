@@ -9,38 +9,59 @@ const JWTStrategy = jwt.Strategy,
 const JWT_SECRET = "csistemas";
 const localStrategy = local.Strategy;
 export const initializePassport = () => {
-  passport.use(
-    "register",
-    new localStrategy(
-      {
-        passReqToCallback: true,
-        usernameField: "email",
-      },
-      async (req, username, password, done) => {
-        const { first_name, last_name, email, age } = req.body;
-        try {
-          const userFound = await managerUser.checkEmail(username);
-            if (userFound) {
-              
-            return done(null, false, {
-              message: "El usuario ya existe",
-            });
-          }
-          const newUser = {
-            first_name,
-            last_name,
-            email,
-            age,
-            password: createHash(password),
-          };
-          const user = await managerUser.createUser(newUser);
-          return done(null, user);
-        } catch (err) {
-          return done(`Error al crear el usuario ${err.message}`, false);
-        }
-      }
-    )
-  );
+   passport.use(
+     "register",
+     new localStrategy(
+       {
+         passReqToCallback: true,
+         usernameField: "email",
+       },
+       async (req, username, password, done) => {
+         const { first_name, last_name, email, age } = req.body;
+         try {
+           const userFound = await managerUser.checkEmail(username);
+           if (userFound) {
+             return done(null, false, { message: "El usuario ya existe" });
+           }
+           const newUser = {
+             first_name,
+             last_name,
+             email,
+             age,
+             password: createHash(password),
+           };
+           const user = await managerUser.createUser(newUser);
+           return done(null, user);
+         } catch (err) {
+           return done(`Error al crear el usuario ${err.message}`, false);
+         }
+       }
+     )
+   );
+     passport.use(
+       "login",
+       new localStrategy(
+         {
+           usernameField: "email",
+           passwordField: "password",
+         },
+         async (username, password, done) => {
+           try {
+             const user = await managerUser.checkEmail(username);
+             if (!user) {
+               return done(null, false, { message: "Usuario no encontrado" });
+             }
+             const isValid = isValidatePassword(password, user.password);
+             if (!isValid) {
+               return done(null, false, { message: "Los datos ingresados no son correstos " });
+             }
+             return done(null, user);
+           } catch (err) {
+             return done(err);
+           }
+         }
+       )
+     );
   passport.use(
     "jwt",
     new JWTStrategy(

@@ -42,8 +42,8 @@ const validateEmail = async (email) => {
     const res = await checkEmail.json();
     if (!res.exists) {
       return Swal.fire({
-        title: "El usuario no existe",
-        text: "no podes acceder sin usuario",
+        title: "Error de inicio",
+        text: `${res.message}`,
         footer: `<a href="/register">Registrate aca!</a>`,
         icon: "error",
       });
